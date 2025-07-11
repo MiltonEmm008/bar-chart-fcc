@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // xAxis: mostrar solo algunos ticks para evitar saturacion, mostrar solo el anio
   const xAxis = d3
     .axisBottom(xScale)
-    .tickValues(xScale.domain().filter((d, i) => i % 20 === 0))
+    .tickValues(xScale.domain().filter((_, i) => i % 20 === 0))
     .tickFormat((d) => d.slice(0, 4));
 
 
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Eventos del tooltip para las barras
   svg
     .selectAll<SVGRectElement, DataGDP>(".bar")
-    .on("mouseover", (e, d) => {
+    .on("mouseover", (_, d) => {
       // Mostrar tooltip con fecha y GDP
       tooltip
         .style("visibility", "visible")
